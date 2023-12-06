@@ -391,36 +391,23 @@ size_t get_ones_count_in_file(char* s)
     return n;
 }
 
-int is_number_in_1SD_range(size_t number)
+
+int is_number_in_1SD_range(size_t number) 
 {
-    if (number >= SD1_START_VALUE 
-     && number <= SD1_END_VALUE)
-    {
-        return 1;
-    }
-    else 
-    {
-        return 0;
-    }
+    return (number >= SD1_START_VALUE && number <= SD1_END_VALUE) ? 1 : 0;
 }
+
 
 int is_number_in_1SD_range_large(size_t number)
 {
-    if (number >= SD1_START_VALUE_LARGE
-        && number <= SD1_END_VALUE_LARGE)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return (number >= SD1_START_VALUE_LARGE && number <= SD1_END_VALUE_LARGE) ? 1 : 0;
 }
 
 char* get_current_datetime()
 {
     time_t t = time(NULL);
     struct tm buf;
+
     localtime_s(&buf, &t);
     char* formatted_datetime = ALLOC(sizeof(char) * 64);
     size_t ret = strftime(formatted_datetime, 64, "%c", &buf);
@@ -441,18 +428,19 @@ size_t divisible_by_six(size_t num)
         addedBitsCount = 6 - fractionalPart;
     }
 
-    assert(addedBitsCount >= 0);
     return addedBitsCount;
 }
 
 /*Get the size of any file*/
 size_t fsize(FILE* File)
 {
-    size_t FSZ;
+    size_t file_size;
+
     fseek(File, 0, SEEK_END);
-    FSZ = ftell(File);
+    file_size = ftell(File);
     rewind(File);
-    return FSZ;
+
+    return file_size;
 }
 
 
