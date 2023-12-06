@@ -155,6 +155,7 @@ size_t get_first_used_pad_id(size_t* pads_list, size_t count, const char* pads_d
 	return 0;
 }
 
+/* We are not using this function!!! Archived. */
 int get_first_42_bits_of_any_pad(char* bits, size_t pad_num, char* pads_dir, wchar_t* error_desc)
 {
 	char* padPath = ALLOC(sizeof(char) * _MAX_PATH);
@@ -202,6 +203,9 @@ int get_first_42_bits_of_any_pad(char* bits, size_t pad_num, char* pads_dir, wch
 	memset(padName, 0, sizeof(padName));
 
 	fclose(pd);
+
+	//FREE(padPath);
+	//FREE(padName);
 
 	return PADS_ERROR_OK;
 }

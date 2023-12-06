@@ -94,4 +94,6 @@ void make_single_pad(char* pad, char* row);
 struct pad collect_data_about_next_pad(char* pad_str, char* buk, char* mrs, int current_pad_id, int prev_pad_it, char* error_desc);
 
 size_t get_first_used_pad_id(size_t* pads_list, size_t count, const char* pads_dir, char* pps, size_t* offset);
+
+/* We are not using this function!!! Archived. */
 int get_first_42_bits_of_any_pad(char* bits, size_t pad_num, char* pads_dir, wchar_t* error_desc);
